@@ -24,7 +24,7 @@ A fun and interactive Flask web app that calculates your age on other planets in
 
 | Input Page | Result Page | PDF Sample |
 |------------|-------------|------------|
-| ![index](assets/screenshots/Screenshot 2025-10-15 114435.png) | ![result](assets/screenshots/Screenshot 2025-10-15 114446.png) | ![pdf](assets/screenshots/Screenshot 2025-10-15 114505.png) |
+| ![index](assets/screenshots/index.png) | ![result](assets/screenshots/result.png) | ![pdf](assets/screenshots/pdf.png) |
 
 > (Optional — add your own screenshots under an `/assets/screenshots/` folder)
 
