@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Space Passport</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #000;
+            color: white;
+        }
+        h1 {
+            text-align: center;
+            color: #00ffd5;
+        }
+        p {
+            font-size: 1.1em;
+        }
+        ul {
+            margin-top: 20px;
+            padding-left: 0;
+            list-style: none;
+        }
+        li {
+            font-size: 1.1em;
+            margin: 8px 0;
+            color: #fcd34d;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 Space Passport</h1>
+    <p><strong>Earth Age:</strong> {{ earth_age }} years</p>
+    <hr>
+    <h2>🪐 Your Planetary Ages:</h2>
+    <ul>
+        {% for planet, age in planetary_ages.items() %}
+            <li>{{ planet }}: {{ age }} years</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

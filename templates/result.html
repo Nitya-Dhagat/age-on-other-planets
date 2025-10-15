@@ -1,0 +1,219 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Your Age on Other Planets</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);-->
+<!--            color: #f0f0f0;-->
+<!--            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;-->
+<!--            text-align: center;-->
+<!--            padding: 60px 20px;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            font-size: 2.2em;-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+
+<!--        h2 {-->
+<!--            font-size: 1.5em;-->
+<!--            margin-bottom: 30px;-->
+<!--            color: #66fcf1;-->
+<!--        }-->
+
+<!--        ul {-->
+<!--            list-style: none;-->
+<!--            padding: 0;-->
+<!--            margin-bottom: 40px;-->
+<!--        }-->
+
+<!--        li {-->
+<!--            font-size: 1.2em;-->
+<!--            margin: 10px 0;-->
+<!--            color: #fcd34d;-->
+<!--        }-->
+
+<!--        a {-->
+<!--            color: #00adb5;-->
+<!--            text-decoration: none;-->
+<!--            font-size: 1em;-->
+<!--            background-color: #222831;-->
+<!--            padding: 10px 20px;-->
+<!--            border-radius: 6px;-->
+<!--            transition: background 0.3s;-->
+<!--        }-->
+
+<!--        a:hover {-->
+<!--            background-color: #393e46;-->
+<!--        }-->
+
+<!--        .stars {-->
+<!--            position: absolute;-->
+<!--            width: 100%;-->
+<!--            height: 100%;-->
+<!--            background: url("https://raw.githubusercontent.com/Klerith/starry-night/master/src/assets/stars.png") repeat;-->
+<!--            opacity: 0.15;-->
+<!--            z-index: -1;-->
+<!--            top: 0;-->
+<!--            left: 0;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <div class="stars"></div>-->
+
+<!--    <h1>🪐 You are {{ earth_age }} Earth years old</h1>-->
+<!--    <h2>Here’s your age on other planets:</h2>-->
+
+<!--    <ul>-->
+<!--        {% for planet, age in planetary_ages.items() %}-->
+<!--            <li><strong>{{ planet }}:</strong> {{ age }} years</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+<!--    <a href="/">🔁 Try anoth-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Your Age on Other Planets</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            color: #66fcf1;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        li {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #fcd34d;
+        }
+
+        li strong {
+            margin-right: 8px;
+        }
+
+        a, button {
+            color: #00adb5;
+            text-decoration: none;
+            font-size: 1em;
+            background-color: #222831;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        a:hover, button:hover {
+            background-color: #393e46;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .stars {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url("https://raw.githubusercontent.com/Klerith/starry-night/master/src/assets/stars.png") repeat;
+            opacity: 0.15;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        /* Star twinkle animation */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .stars::before {
+            content: "";
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: white;
+            animation: twinkle 2s infinite;
+            top: 30%;
+            left: 40%;
+        }
+
+        .stars::after {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: white;
+            animation: twinkle 3s infinite;
+            top: 60%;
+            left: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+
+    <h1>🪐 You are {{ earth_age }} Earth years old</h1>
+    <h2>Here’s your age on other planets:</h2>
+
+    <ul>
+        {% for planet, age in planetary_ages.items() %}
+            <li>
+                {% if planet == 'Mercury' %} 🛰️
+                {% elif planet == 'Venus' %} 🌕
+                {% elif planet == 'Earth' %} 🌍
+                {% elif planet == 'Mars' %} 🔴
+                {% elif planet == 'Jupiter' %} 🟤
+                {% elif planet == 'Saturn' %} 🪐
+                {% elif planet == 'Uranus' %} 🌀
+                {% elif planet == 'Neptune' %} 🌊
+                {% endif %}
+                <strong>{{ planet }}:</strong> {{ age }} years
+            </li>
+        {% endfor %}
+    </ul>
+
+    <form action="/age-report" method="POST">
+        <input type="hidden" name="earth_age" value="{{ earth_age }}">
+        <button type="submit">📄 Download Your Space Age Report</button>
+    </form>
+
+    <a href="/">🔁 Try another age</a>
+</body>
+</html>
