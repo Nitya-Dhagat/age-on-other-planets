@@ -16,7 +16,7 @@ A fun and interactive Flask web app that calculates your age on other planets in
 
 ## 🌍 Live Demo
 
-> Coming soon… (you can deploy this on [Render](https://render.com), [Railway](https://railway.app), or [Heroku](https://www.heroku.com))
+> Coming soon…
 
 ---
 
@@ -26,7 +26,7 @@ A fun and interactive Flask web app that calculates your age on other planets in
 |------------|-------------|------------|
 | ![index](assets/screenshots/index.png) | ![result](assets/screenshots/result.png) | ![pdf](assets/screenshots/pdf.png) |
 
-> (Optional — add your own screenshots under an `/assets/screenshots/` folder)
+
 
 ---
 
